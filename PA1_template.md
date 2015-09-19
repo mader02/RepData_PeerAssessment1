@@ -193,7 +193,7 @@ mean(daily_sum$steps) - mean(steps_perday)
 ###**Are there differences in activity patterns between weekdays and weekends?**
 
 * Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
-* plot panel containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis)
+* Pilot panel containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis)
 
 
 ```r
@@ -212,9 +212,9 @@ activity_mean <- activity_dt %>%
 
 ggplot(activity_mean, aes(x=interval, y=steps, color = wde)) +
         geom_line() +
-        facet_wrap(~wde, ncol = 1, nrow=2) + labs(title="Activity Pattern",x="5-Minute-Interval",y="Average number of steps")
+        facet_wrap(~wde, ncol = 1, nrow=2) + labs(title="Activity Pattern",x="5-Minute-Interval",y="Average number of steps") + geom_line(stat="hline",yintercept="mean",color="blue")
 ```
 
 ![](Figs/unnamed-chunk-9-1.png) 
-
+There are slight differences between the number of steps taken on weekday and weekend. The mean value of each category are displayed by the blue horizontal line
 
